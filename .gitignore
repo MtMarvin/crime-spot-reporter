@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Flask / local development
+instance/
+
+# Local crime reports and uploaded evidence
+submissions/*
+!submissions/.gitkeep
+
+# Environment and secret files
+.env
+.env.*
+*.secret
+
+# IDE settings
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini

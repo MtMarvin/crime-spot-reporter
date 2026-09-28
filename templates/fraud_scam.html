@@ -1,0 +1,53 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud / Scam Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Fraud / Scam</h1>
+        <p>Report fraud, scams, or suspicious financial activity</p>
+    </header>
+
+    <main>
+        <form action="/submit" method="POST" enctype="multipart/form-data">
+
+            <input type="hidden" name="crime_category" value="Fraud / Scam">
+
+            <label for="description">Describe the incident:</label>
+            <textarea id="description" name="description" rows="6"
+                placeholder="Please describe what happened..." required></textarea>
+
+            <label for="location">Location of incident:</label>
+            <input type="text" id="location" name="location"
+                placeholder="Enter the location" required>
+
+            <label for="date">Date of incident:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Time of incident:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="evidence">Upload photo or short video (optional):</label>
+            <input type="file" id="evidence" name="evidence"
+                accept="image/*,video/*">
+
+            <button type="submit">Submit Report</button>
+
+        </form>
+
+        <br>
+
+        <button type="button" onclick="window.location.href='/report'">
+            Back to Crime Categories
+        </button>
+    </main>
+
+</body>
+</html>
+```

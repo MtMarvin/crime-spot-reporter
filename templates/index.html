@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crime Spot Reporter</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Crime Spot Reporter</div>
+
+        <button class="menu-button" onclick="toggleMenu()">
+            ☰
+        </button>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <h1>Report Crime.<br>Protect Your Community.</h1>
+
+            <p>
+                Report incidents quickly and help keep your community safer.
+            </p>
+
+            <button class="report-button" onclick="startReport()">
+                Report a Crime
+            </button>
+        </section>
+
+        <section class="categories">
+
+            <h2>Report a Crime</h2>
+
+            <p>Select a category to continue.</p>
+
+            <div class="category-grid">
+
+                <button onclick="selectCrimeCategory('Theft')">
+                    Theft
+                </button>
+
+                <button onclick="selectCrimeCategory('Housebreaking / Burglary')">
+                    Housebreaking / Burglary
+                </button>
+
+                <button onclick="selectCrimeCategory('Robbery')">
+                    Robbery
+                </button>
+
+                <button onclick="selectCrimeCategory('Assault')">
+                    Assault
+                </button>
+
+                <button onclick="selectCrimeCategory('Sexual Offence')">
+                    Sexual Offence
+                </button>
+
+                <button onclick="selectCrimeCategory('Vehicle Crime')">
+                    Vehicle Crime
+                </button>
+
+                <button onclick="selectCrimeCategory('Fraud / Scam')">
+                    Fraud / Scam
+                </button>
+
+                <button onclick="selectCrimeCategory('Vandalism / Property Damage')">
+                    Vandalism / Property Damage
+                </button>
+
+                <button onclick="selectCrimeCategory('Murder / Attempted Murder')">
+                    Murder / Attempted Murder
+                </button>
+
+                <button onclick="selectCrimeCategory('Drug / Illegal Activity')">
+                    Drug / Illegal Activity
+                </button>
+
+                <button onclick="selectCrimeCategory('Other Crime')">
+                    Other Crime
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            If you are in immediate danger, contact emergency services.
+        </p>
+
+        <p>
+            © 2026 Crime Spot Reporter
+        </p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

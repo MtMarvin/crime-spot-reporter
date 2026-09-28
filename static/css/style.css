@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+    min-height: 100vh;
+}
+
+header {
+    background: #111;
+    color: white;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.menu-button {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.hero {
+    background: #8b0000;
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.report-button {
+    background: white;
+    color: #8b0000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.report-button:hover {
+    background: #eeeeee;
+}
+
+.categories {
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.categories h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.categories p {
+    margin-bottom: 25px;
+}
+
+.category-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.category-grid button {
+    background: white;
+    border: 2px solid #8b0000;
+    color: #8b0000;
+    padding: 18px 10px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.category-grid button:hover {
+    background: #8b0000;
+    color: white;
+}
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+}

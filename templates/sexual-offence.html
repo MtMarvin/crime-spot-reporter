@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sexual Offence Report</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Report Sexual Offence</h1>
+
+        <p>Please provide the details of the incident below.</p>
+
+        <form action="/submit-sexual-offence" method="POST" enctype="multipart/form-data">
+
+            <label for="date">Date of Incident:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Time of Incident:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="Where did the incident occur?" required>
+
+            <label for="description">Describe What Happened:</label>
+            <textarea id="description" name="description" rows="6"
+                placeholder="Provide any relevant information about the incident..." required></textarea>
+
+            <label for="evidence">Photo or Short Video Evidence (Optional):</label>
+            <input type="file" id="evidence" name="evidence" accept="image/*,video/*">
+
+            <button type="submit">Submit Report</button>
+
+        </form>
+
+        <br>
+
+        <button type="button" onclick="window.location.href='/report'">
+            Back to Crime Categories
+        </button>
+
+    </div>
+
+</body>
+</html>

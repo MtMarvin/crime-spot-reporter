@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assault Report - Crime Spot Reporter</title>
+</head>
+
+<body>
+
+    <h1>Report Assault</h1>
+
+    <form action="/submit-assault" method="POST">
+
+        <label for="date">Date of incident:</label><br>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="time">Time of incident:</label><br>
+        <input type="time" id="time" name="time" required><br><br>
+
+        <label for="location">Location of incident:</label><br>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <label for="injuries">Were there injuries?</label><br>
+        <select id="injuries" name="injuries" required>
+            <option value="">-- Select --</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Unknown">Unknown</option>
+        </select><br><br>
+
+        <label for="weapon">Was a weapon involved?</label><br>
+        <select id="weapon" name="weapon" required>
+            <option value="">-- Select --</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Unknown">Unknown</option>
+        </select><br><br>
+
+        <label for="suspect">Suspect description:</label><br>
+        <textarea id="suspect" name="suspect" rows="4"></textarea><br><br>
+
+        <label for="description">Describe what happened:</label><br>
+        <textarea id="description" name="description" rows="6" required></textarea><br><br>
+
+        <button type="submit">Submit Assault Report</button>
+
+    </form>
+
+</body>
+
+</html>
