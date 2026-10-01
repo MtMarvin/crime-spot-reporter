@@ -1,51 +1,122 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sexual Offence Report</title>
+    <title>Sexual Offence Report - Crime Spot Reporter</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
 
-    <div class="container">
+    <header>
+        <div class="logo">Crime Spot Reporter</div>
 
-        <h1>Report Sexual Offence</h1>
-
-        <p>Please provide the details of the incident below.</p>
-
-        <form action="/submit-sexual-offence" method="POST" enctype="multipart/form-data">
-
-            <label for="date">Date of Incident:</label>
-            <input type="date" id="date" name="date" required>
-
-            <label for="time">Time of Incident:</label>
-            <input type="time" id="time" name="time" required>
-
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location" placeholder="Where did the incident occur?" required>
-
-            <label for="description">Describe What Happened:</label>
-            <textarea id="description" name="description" rows="6"
-                placeholder="Provide any relevant information about the incident..." required></textarea>
-
-            <label for="evidence">Photo or Short Video Evidence (Optional):</label>
-            <input type="file" id="evidence" name="evidence" accept="image/*,video/*">
-
-            <button type="submit">Submit Report</button>
-
-        </form>
-
-        <br>
-
-        <button type="button" onclick="window.location.href='/report'">
-            Back to Crime Categories
+        <button class="menu-button" onclick="toggleMenu()" aria-label="Open menu">
+            ☰
         </button>
+    </header>
 
-    </div>
+    <main>
+
+        <section class="categories">
+
+            <h1>Report Sexual Offence</h1>
+
+            <p>
+                Please provide the details of the incident below.
+                Only provide information that is necessary to document the report.
+            </p>
+
+            <form action="/submit-sexual-offence" method="POST" enctype="multipart/form-data">
+
+                <label for="date">Date of incident</label>
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    required
+                >
+
+                <label for="time">Approximate time</label>
+                <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    required
+                >
+
+                <label for="location">Location of incident</label>
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="Where did the incident occur?"
+                    maxlength="500"
+                    required
+                >
+
+                <label for="description">Describe what happened</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="6"
+                    maxlength="4000"
+                    placeholder="Provide relevant information about the incident..."
+                    required
+                ></textarea>
+
+                <label for="evidence">Photo or short video evidence</label>
+
+                <input
+                    type="file"
+                    id="evidence"
+                    name="evidence"
+                    accept="image/jpeg,image/png,image/gif,image/webp,video/mp4,video/mov,video/avi,video/webm,video/x-m4v"
+                    multiple
+                >
+
+                <p class="form-help">
+                    Evidence is optional. You may attach photos or short video clips.
+                    Maximum total upload size: 50 MB.
+                    Do not upload sensitive information unless necessary.
+                </p>
+
+                <button type="submit" class="report-button">
+                    Submit Sexual Offence Report
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            If you are in immediate danger, contact emergency services.
+        </p>
+
+        <p>
+            Crime Spot Reporter does not replace official police or emergency
+            services. For emergencies, contact the appropriate emergency service.
+        </p>
+
+        <p>
+            © 2026 Crime Spot Reporter
+        </p>
+
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
+
 </html>
+
+

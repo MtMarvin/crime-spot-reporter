@@ -1,48 +1,147 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Robbery Report - Crime Spot Reporter</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
 
-    <h1>Report Robbery</h1>
+    <header>
+        <div class="logo">Crime Spot Reporter</div>
 
-    <form action="/submit-robbery" method="POST">
+        <button class="menu-button" onclick="toggleMenu()" aria-label="Open menu">
+            ☰
+        </button>
+    </header>
 
-        <label for="date">Date of incident:</label><br>
-        <input type="date" id="date" name="date" required><br><br>
+    <main>
 
-        <label for="time">Time of incident:</label><br>
-        <input type="time" id="time" name="time" required><br><br>
+        <section class="categories">
 
-        <label for="location">Location of incident:</label><br>
-        <input type="text" id="location" name="location" required><br><br>
+            <h1>Report Robbery</h1>
 
-        <label for="weapon">Was a weapon used?</label><br>
-        <select id="weapon" name="weapon" required>
-            <option value="">-- Select --</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="Unknown">Unknown</option>
-        </select><br><br>
+            <p>
+                Provide as much information as possible about the incident.
+                Your information can help document the report accurately.
+            </p>
 
-        <label for="items">Items or property taken:</label><br>
-        <textarea id="items" name="items" rows="4" required></textarea><br><br>
+            <form action="/submit-robbery" method="POST" enctype="multipart/form-data">
 
-        <label for="suspect">Suspect description:</label><br>
-        <textarea id="suspect" name="suspect" rows="4"></textarea><br><br>
+                <label for="date">Date of incident</label>
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    required
+                >
 
-        <label for="description">Additional information:</label><br>
-        <textarea id="description" name="description" rows="5"></textarea><br><br>
+                <label for="time">Approximate time</label>
+                <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    required
+                >
 
-        <button type="submit">Submit Robbery Report</button>
+                <label for="location">Location of incident</label>
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="Enter the location"
+                    maxlength="500"
+                    required
+                >
 
-    </form>
+                <label for="weapon">Was a weapon used?</label>
+                <select id="weapon" name="weapon" required>
+                    <option value="">Select an option</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+
+                <label for="items">Items or property taken</label>
+                <textarea
+                    id="items"
+                    name="items"
+                    rows="4"
+                    maxlength="3000"
+                    placeholder="Describe the items or property taken"
+                    required
+                ></textarea>
+
+                <label for="suspect">Suspect description</label>
+                <textarea
+                    id="suspect"
+                    name="suspect"
+                    rows="4"
+                    maxlength="3000"
+                    placeholder="Describe the suspect(s) if known"
+                ></textarea>
+
+                <label for="description">Additional information</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="5"
+                    maxlength="4000"
+                    placeholder="Provide any other relevant information"
+                ></textarea>
+
+                <label for="evidence">Photo or short video evidence</label>
+
+                <input
+                    type="file"
+                    id="evidence"
+                    name="evidence"
+                    accept="image/jpeg,image/png,image/gif,image/webp,video/mp4,video/mov,video/avi,video/webm,video/x-m4v"
+                    multiple
+                >
+
+                <p class="form-help">
+                    You may attach photos or short video clips.
+                    Maximum total upload size: 50 MB.
+                    Do not upload sensitive information unless necessary.
+                </p>
+
+                <button type="submit" class="report-button">
+                    Submit Robbery Report
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            If you are in immediate danger, contact emergency services.
+        </p>
+
+        <p>
+            Crime Spot Reporter does not replace official police or emergency
+            services. For emergencies, contact the appropriate emergency service.
+        </p>
+
+        <p>
+            © 2026 Crime Spot Reporter
+        </p>
+
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
 
 </html>
+

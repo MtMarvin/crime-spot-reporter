@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,8 @@
 
     <title>Report Theft - Crime Spot Reporter</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
@@ -15,10 +17,16 @@
     <header>
         <div class="logo">Crime Spot Reporter</div>
 
-        <button class="menu-button" onclick="toggleMenu()">
+        <button
+            class="menu-button"
+            type="button"
+            onclick="toggleMenu()"
+            aria-label="Open menu"
+        >
             ☰
         </button>
     </header>
+
 
     <main>
 
@@ -30,72 +38,135 @@
                 Provide as much information as possible about the theft.
             </p>
 
-            <form action="/submit-theft" method="POST" enctype="multipart/form-data">
+            <form
+                action="/submit-theft"
+                method="POST"
+                enctype="multipart/form-data"
+            >
 
-                <label for="date">Date of incident</label>
-                <input type="date" id="date" name="date" required>
+                <label for="date">
+                    Date of incident
+                </label>
+
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    required
+                >
+
 
                 <br><br>
 
-                <label for="time">Approximate time</label>
-                <input type="time" id="time" name="time" required>
+
+                <label for="time">
+                    Approximate time
+                </label>
+
+                <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    required
+                >
+
 
                 <br><br>
 
-                <label for="location">Location of incident</label>
+
+                <label for="location">
+                    Location of incident
+                </label>
+
                 <input
                     type="text"
                     id="location"
                     name="location"
                     placeholder="Enter the location"
+                    maxlength="250"
                     required
                 >
 
+
                 <br><br>
 
-                <label for="items">What was stolen?</label>
+
+                <label for="items">
+                    What was stolen?
+                </label>
+
                 <textarea
                     id="items"
                     name="items"
                     rows="4"
+                    maxlength="2000"
                     placeholder="Describe the stolen items"
                     required
                 ></textarea>
 
+
                 <br><br>
 
-                <label for="value">Estimated value of stolen items</label>
+
+                <label for="value">
+                    Estimated value of stolen items
+                </label>
+
                 <input
                     type="number"
                     id="value"
                     name="value"
                     placeholder="Enter amount in Rand"
                     min="0"
+                    step="0.01"
                 >
+
 
                 <br><br>
 
-                <label for="description">Additional information</label>
+
+                <label for="description">
+                    Additional information
+                </label>
+
                 <textarea
                     id="description"
                     name="description"
                     rows="5"
+                    maxlength="4000"
                     placeholder="Provide any other information about the incident"
                 ></textarea>
 
+
                 <br><br>
 
-                <label for="evidence">Photo or short video evidence</label>
+
+                <label for="evidence">
+                    Photo or short video evidence
+                </label>
+
                 <input
                     type="file"
                     id="evidence"
                     name="evidence"
-                    accept="image/*,video/*"
+                    accept="image/jpeg,image/png,image/gif,image/webp,video/mp4,video/mov,video/avi,video/webm,video/x-m4v"
+                    multiple
                 >
 
-                <br><br>
+                <p class="form-help">
+                    You may attach photos or short video clips.
+                    Maximum total upload size: 50 MB.
+                    Do not upload sensitive information unless necessary.
+                </p>
 
-                <button type="submit" class="report-button">
+
+                <br>
+
+
+                <button
+                    type="submit"
+                    class="report-button"
+                >
                     Submit Theft Report
                 </button>
 
@@ -105,10 +176,16 @@
 
     </main>
 
+
     <footer>
 
         <p>
             If you are in immediate danger, contact emergency services.
+        </p>
+
+        <p>
+            Crime Spot Reporter is a community reporting application
+            and does not replace official police or emergency services.
         </p>
 
         <p>
@@ -117,8 +194,12 @@
 
     </footer>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}">
+    </script>
 
 </body>
 
 </html>
+

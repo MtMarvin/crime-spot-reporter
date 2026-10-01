@@ -1,53 +1,129 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Murder / Attempted Murder Report</title>
+
+    <title>Murder / Attempted Murder Report - Crime Spot Reporter</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
 
     <header>
-        <h1>Murder / Attempted Murder</h1>
-        <p>Report a murder or attempted murder incident</p>
+        <div class="logo">Crime Spot Reporter</div>
+
+        <button class="menu-button" onclick="toggleMenu()" aria-label="Open menu">
+            ☰
+        </button>
     </header>
 
     <main>
-        <form action="/submit" method="POST" enctype="multipart/form-data">
 
-            <input type="hidden" name="crime_category" value="Murder / Attempted Murder">
+        <section class="categories">
 
-            <label for="description">Describe the incident:</label>
-            <textarea id="description" name="description" rows="6"
-                placeholder="Please describe what happened..." required></textarea>
+            <h1>Report Murder / Attempted Murder</h1>
 
-            <label for="location">Location of incident:</label>
-            <input type="text" id="location" name="location"
-                placeholder="Enter the location" required>
+            <p>
+                Provide factual information about the incident.
+                If there is immediate danger or someone requires urgent medical
+                assistance, contact emergency services.
+            </p>
 
-            <label for="date">Date of incident:</label>
-            <input type="date" id="date" name="date" required>
+            <form action="/submit" method="POST" enctype="multipart/form-data">
 
-            <label for="time">Time of incident:</label>
-            <input type="time" id="time" name="time" required>
+                <input
+                    type="hidden"
+                    name="crime_category"
+                    value="Murder / Attempted Murder"
+                >
 
-            <label for="evidence">Upload photo or short video (optional):</label>
-            <input type="file" id="evidence" name="evidence"
-                accept="image/*,video/*">
+                <label for="date">Date of incident</label>
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    required
+                >
 
-            <button type="submit">Submit Report</button>
+                <label for="time">Approximate time</label>
+                <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    required
+                >
 
-        </form>
+                <label for="location">Location of incident</label>
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="Enter the location"
+                    maxlength="500"
+                    required
+                >
 
-        <br>
+                <label for="description">Describe the incident</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="6"
+                    maxlength="4000"
+                    placeholder="Please describe what happened..."
+                    required
+                ></textarea>
 
-        <button type="button" onclick="window.location.href='/report'">
-            Back to Crime Categories
-        </button>
+                <label for="evidence">Photo or short video evidence</label>
+
+                <input
+                    type="file"
+                    id="evidence"
+                    name="evidence"
+                    accept="image/jpeg,image/png,image/gif,image/webp,video/mp4,video/mov,video/avi,video/webm,video/x-m4v"
+                    multiple
+                >
+
+                <p class="form-help">
+                    Evidence is optional. You may attach photos or short video clips.
+                    Maximum total upload size: 50 MB.
+                    Do not upload sensitive information unless necessary.
+                </p>
+
+                <button type="submit" class="report-button">
+                    Submit Murder / Attempted Murder Report
+                </button>
+
+            </form>
+
+        </section>
+
     </main>
 
+    <footer>
+
+        <p>
+            If you are in immediate danger, contact emergency services.
+        </p>
+
+        <p>
+            Crime Spot Reporter does not replace official police or emergency
+            services. For emergencies, contact the appropriate emergency service.
+        </p>
+
+        <p>
+            © 2026 Crime Spot Reporter
+        </p>
+
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </body>
+
 </html>
-```
+
+

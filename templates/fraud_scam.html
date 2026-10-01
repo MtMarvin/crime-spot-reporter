@@ -1,53 +1,129 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fraud / Scam Report</title>
+
+    <title>Fraud / Scam Report - Crime Spot Reporter</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
 
     <header>
-        <h1>Fraud / Scam</h1>
-        <p>Report fraud, scams, or suspicious financial activity</p>
+        <div class="logo">Crime Spot Reporter</div>
+
+        <button class="menu-button" onclick="toggleMenu()" aria-label="Open menu">
+            ☰
+        </button>
     </header>
 
     <main>
-        <form action="/submit" method="POST" enctype="multipart/form-data">
 
-            <input type="hidden" name="crime_category" value="Fraud / Scam">
+        <section class="categories">
 
-            <label for="description">Describe the incident:</label>
-            <textarea id="description" name="description" rows="6"
-                placeholder="Please describe what happened..." required></textarea>
+            <h1>Report Fraud / Scam</h1>
 
-            <label for="location">Location of incident:</label>
-            <input type="text" id="location" name="location"
-                placeholder="Enter the location" required>
+            <p>
+                Report fraud, scams, or suspicious financial activity.
+                Provide as much useful information as possible.
+            </p>
 
-            <label for="date">Date of incident:</label>
-            <input type="date" id="date" name="date" required>
+            <form action="/submit" method="POST" enctype="multipart/form-data">
 
-            <label for="time">Time of incident:</label>
-            <input type="time" id="time" name="time" required>
+                <input
+                    type="hidden"
+                    name="crime_category"
+                    value="Fraud / Scam"
+                >
 
-            <label for="evidence">Upload photo or short video (optional):</label>
-            <input type="file" id="evidence" name="evidence"
-                accept="image/*,video/*">
+                <label for="date">Date of incident</label>
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    required
+                >
 
-            <button type="submit">Submit Report</button>
+                <label for="time">Approximate time</label>
+                <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    required
+                >
 
-        </form>
+                <label for="location">Location of incident</label>
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="Enter the location"
+                    maxlength="500"
+                    required
+                >
 
-        <br>
+                <label for="description">Describe the incident</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="6"
+                    maxlength="4000"
+                    placeholder="Describe the fraud, scam, or suspicious activity..."
+                    required
+                ></textarea>
 
-        <button type="button" onclick="window.location.href='/report'">
-            Back to Crime Categories
-        </button>
+                <label for="evidence">Photo or short video evidence</label>
+
+                <input
+                    type="file"
+                    id="evidence"
+                    name="evidence"
+                    accept="image/jpeg,image/png,image/gif,image/webp,video/mp4,video/mov,video/avi,video/webm,video/x-m4v"
+                    multiple
+                >
+
+                <p class="form-help">
+                    Evidence is optional. You may attach photos or short video clips.
+                    Maximum total upload size: 50 MB.
+                    Do not upload sensitive information such as passwords,
+                    PINs, or full banking credentials.
+                </p>
+
+                <button type="submit" class="report-button">
+                    Submit Fraud / Scam Report
+                </button>
+
+            </form>
+
+        </section>
+
     </main>
 
+    <footer>
+
+        <p>
+            If you are in immediate danger, contact emergency services.
+        </p>
+
+        <p>
+            Crime Spot Reporter does not replace official police or emergency
+            services. For emergencies, contact the appropriate emergency service.
+        </p>
+
+        <p>
+            © 2026 Crime Spot Reporter
+        </p>
+
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </body>
+
 </html>
-```
+
+

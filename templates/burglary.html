@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
     <header>
         <div class="logo">Crime Spot Reporter</div>
 
-        <button class="menu-button" onclick="toggleMenu()">
+        <button class="menu-button" onclick="toggleMenu()" aria-label="Open menu">
             ☰
         </button>
     </header>
@@ -28,19 +29,26 @@
 
             <p>
                 Provide as much information as possible about the incident.
+                Your information can help document the incident accurately.
             </p>
 
             <form action="/submit-burglary" method="POST" enctype="multipart/form-data">
 
                 <label for="date">Date of incident</label>
-                <input type="date" id="date" name="date" required>
-
-                <br><br>
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    required
+                >
 
                 <label for="time">Approximate time</label>
-                <input type="time" id="time" name="time" required>
-
-                <br><br>
+                <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    required
+                >
 
                 <label for="location">Location of incident</label>
                 <input
@@ -48,10 +56,9 @@
                     id="location"
                     name="location"
                     placeholder="Enter the location"
+                    maxlength="500"
                     required
                 >
-
-                <br><br>
 
                 <label for="property">Type of property</label>
                 <select id="property" name="property" required>
@@ -63,59 +70,59 @@
                     <option value="Other">Other</option>
                 </select>
 
-                <br><br>
-
                 <label for="entry">How did the suspect(s) gain entry?</label>
                 <textarea
                     id="entry"
                     name="entry"
                     rows="4"
+                    maxlength="3000"
                     placeholder="Describe how entry was gained"
                     required
                 ></textarea>
-
-                <br><br>
 
                 <label for="stolen">What was stolen or damaged?</label>
                 <textarea
                     id="stolen"
                     name="stolen"
                     rows="4"
+                    maxlength="3000"
                     placeholder="Describe stolen or damaged property"
                     required
                 ></textarea>
-
-                <br><br>
 
                 <label for="suspect">Suspect information</label>
                 <textarea
                     id="suspect"
                     name="suspect"
                     rows="4"
+                    maxlength="3000"
                     placeholder="Describe the suspect(s) if known"
                 ></textarea>
-
-                <br><br>
 
                 <label for="description">Additional information</label>
                 <textarea
                     id="description"
                     name="description"
                     rows="5"
+                    maxlength="4000"
                     placeholder="Provide any other information about the incident"
                 ></textarea>
 
-                <br><br>
-
                 <label for="evidence">Photo or short video evidence</label>
+
                 <input
                     type="file"
                     id="evidence"
                     name="evidence"
-                    accept="image/*,video/*"
+                    accept="image/jpeg,image/png,image/gif,image/webp,video/mp4,video/mov,video/avi,video/webm,video/x-m4v"
+                    multiple
                 >
 
-                <br><br>
+                <p class="form-help">
+                    You may attach photos or short video clips.
+                    Maximum total upload size: 50 MB.
+                    Do not upload sensitive information unless necessary.
+                </p>
 
                 <button type="submit" class="report-button">
                     Submit Burglary Report
@@ -134,6 +141,11 @@
         </p>
 
         <p>
+            Crime Spot Reporter does not replace official police or emergency
+            services. For emergencies, contact the appropriate emergency service.
+        </p>
+
+        <p>
             © 2026 Crime Spot Reporter
         </p>
 
@@ -144,3 +156,4 @@
 </body>
 
 </html>
+
